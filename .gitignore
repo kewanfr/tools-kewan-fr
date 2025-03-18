@@ -1,0 +1,8 @@
+src/utils/db_pass.php
+
+node_modules/
+old/
+
+package-lock.json
+
+.DS_Store
