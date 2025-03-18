@@ -1,7 +1,7 @@
 <?php
 // src/db.php
 
-include 'db_pass.php';
+require_once 'db_pass.php';
 
 $charset = 'utf8mb4';
 

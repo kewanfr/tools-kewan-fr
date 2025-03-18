@@ -24,7 +24,7 @@ CREATE TABLE tools_servers (
 CREATE TABLE tools_server_links (
   id INT AUTO_INCREMENT PRIMARY KEY,
   server_id INT NOT NULL,
-  name VARCHAR(255) NOT NULL,
+  nom VARCHAR(255) NOT NULL,
   url VARCHAR(255) NOT NULL,
   icon VARCHAR(255),
   created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
@@ -34,7 +34,7 @@ CREATE TABLE tools_server_links (
 CREATE TABLE tools_server_apps (
   id INT AUTO_INCREMENT PRIMARY KEY,
   server_id INT NOT NULL,
-  name VARCHAR(255) NOT NULL,
+  nom VARCHAR(255) NOT NULL,
   -- hostname VARCHAR(255),
   -- path VARCHAR(255),
   icon VARCHAR(255),
