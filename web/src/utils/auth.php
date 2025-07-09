@@ -24,4 +24,3 @@ function requireLogin($pdo) {
         }
     }
 }
-?>

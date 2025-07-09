@@ -6,3 +6,5 @@ old/
 package-lock.json
 
 .DS_Store
+
+db_pass.php

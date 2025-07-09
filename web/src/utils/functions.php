@@ -42,6 +42,3 @@ function getServersList($pdo) {
 
     return $servers;
 }
-
-
-?>
