@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "dev": "tailwindcss -i ./src/css/input.css -o ./src/css/style.css --watch",
-    "build": "tailwindcss -i ./src/css/input.css -o ./src/css/style.css"
+    "dev": "tailwindcss -i ./web/src/css/input.css -o ./web/src/css/style.css --watch",
+    "build": "tailwindcss -i ./web/src/css/input.css -o ./web/src/css/style.css"
   },
   "author": "kewanfr",
   "license": "MIT",
