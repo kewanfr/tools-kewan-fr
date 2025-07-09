@@ -92,10 +92,94 @@ $servers = getServersList($pdo);
                 <p class="text-center text-gray-600">Aucun serveur disponible.</p>
             <?php endif; ?>
         </div>
+        </div>
+        <div class="mt-10">
+            <!-- Formulaire d'application -->
+            <div class="bg-white shadow-md rounded-lg p-6 mb-8">
+                <h2 class="text-2xl font-semibold mb-4 text-gray-800 flex justify-between items-center cursor-pointer" onclick="toggleAccordion('hourCalc')">
+                    Calculateur d'heures de travail
+                    <span id="hourCalcToggle" class="transform transition-transform">&#9660;</span>
+                </h2>
+                <div id="hourCalc">
+
+
+
+                    <!-- Catégorie MATIN -->
+                    <div class="mb-4">
+                        <div class="flex items-center justify-between mb-2">
+                            <div class="flex items-center space-x-2">
+                                <h3 class="text-lg font-semibold text-gray-800">MATIN</h3>
+                                <input type="checkbox" id="matinEnabled" name="matinEnabled" class="form-checkbox h-5 w-5 text-blue-600">
+                                <label for="matinEnabled" class="text-sm text-gray-700">Prendre en compte</label>
+                            </div>
+                            <div class="text-sm text-gray-500">
+                                Heures du matin : <span id="matinValidatedHours">00:00</span>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <!-- Heure d'entrée -->
+                            <div>
+                                <label for="startTime" class="block text-sm font-medium text-gray-700">Heure d'entrée</label>
+                                <input type="time" id="startTime" name="startTime" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                            </div>
+                            <!-- Heure début de pause -->
+                            <div>
+                                <label for="breakStartTime" class="block text-sm font-medium text-gray-700">Heure début de pause</label>
+                                <input type="time" id="breakStartTime" name="breakStartTime"
+                                    class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Séparateur visuel -->
+                    <hr class="my-6 border-t-2 border-gray-200">
+
+                    <!-- Catégorie APRÈS-MIDI -->
+                    <div class="mb-4">
+                        <div class="flex items-center justify-between mb-2">
+                            <div class="flex items-center space-x-2">
+                                <h3 class="text-lg font-semibold text-gray-800">APRÈS-MIDI</h3>
+                                <input type="checkbox" id="apresMidiEnabled" name="apresMidiEnabled" class="form-checkbox h-5 w-5 text-blue-600">
+                                <label for="apresMidiEnabled" class="text-sm text-gray-700">Prendre en compte</label>
+                            </div>
+                            <div class="text-sm text-gray-500">
+                                Heures de l'après midi : <span id="apresMidiValidatedHours">00:00</span>
+                            </div>
+                        </div>
+                        <div>
+                            <label for="breakEndTime" class="block text-sm font-medium text-gray-700">Heure fin de pause</label>
+                            <input type="time" id="breakEndTime" name="breakEndTime"
+                                class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                        </div>
+                    </div>
+
+                    <!-- Séparateur visuel -->
+                    <hr class="my-6 border-t-2 border-gray-200">
+
+                    <!-- Temps à faire -->
+                    <div class="mb-4">
+                        <label for="workDuration" class="block text-sm font-medium text-gray-700">Temps à faire</label>
+                        <input type="time" id="workDuration" name="workDuration"
+                            class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                    </div>
+
+
+                    <!-- heure à laquelle terminer: Résultat du calcul (en grand, pas un input mais un texte) -->
+                    <div class="mb-4">
+                        <label class="block text-sm font-medium text-gray-700">Heure à laquelle terminer</label>
+                        <div class="flex items-end space-x-3">
+                            <p id="resultTime" class="mt-1 text-2xl font-semibold text-blue-600">00:00</p>
+                            <span id="pauseDuration" class="mt-1 text-sm ml-2 text-gray-500">(pause: 00:00)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="./src/js/home.js"></script>
     </main>
 
     <?php include './src/php/footer.php'; ?>
-    <script src="./src/js/upload.js"></script>
+    <!-- /<script src="./src/js/upload.js"></script> -->
 </body>
 
 </html>
