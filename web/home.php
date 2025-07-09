@@ -113,7 +113,7 @@ $servers = getServersList($pdo);
                                 <label for="matinEnabled" class="text-sm text-gray-700">Prendre en compte</label>
                             </div>
                             <div class="text-sm text-gray-500">
-                                Heures du matin : <span id="matinValidatedHours">00:00</span>
+                                Durée : <span id="matinValidatedHours">00:00</span>
                             </div>
                         </div>
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -143,7 +143,7 @@ $servers = getServersList($pdo);
                                 <label for="apresMidiEnabled" class="text-sm text-gray-700">Prendre en compte</label>
                             </div>
                             <div class="text-sm text-gray-500">
-                                Heures de l'après midi : <span id="apresMidiValidatedHours">00:00</span>
+                                Durée : <span id="apresMidiValidatedHours">00:00</span>
                             </div>
                         </div>
                         <div>
@@ -169,7 +169,7 @@ $servers = getServersList($pdo);
                         <label class="block text-sm font-medium text-gray-700">Heure à laquelle terminer</label>
                         <div class="flex items-end space-x-3">
                             <p id="resultTime" class="mt-1 text-2xl font-semibold text-blue-600">00:00</p>
-                            <span id="pauseDuration" class="mt-1 text-sm ml-2 text-gray-500">(pause: 00:00)</span>
+                            <span class="mt-1 text-sm ml-2 text-gray-500">(pause: <span id="pauseDuration">00:00</span>)</span>
                         </div>
                     </div>
                 </div>

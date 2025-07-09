@@ -60,13 +60,10 @@ function calculateEndTime() {
 
   // Calcul heures validées matin (en minutes)
   let matinMinutes = 0;
-  //console.log(start.getTime(), breakStart.getTime());
   if (!isNaN(start.getTime()) && !isNaN(breakStart.getTime())) {
     matinMinutes = Math.max(0, Math.round((breakStart - start) / 60000));
-    //console.log(`Matin minutes: ${matinMinutes}`);
     const h = Math.floor(matinMinutes / 60);
     const m = matinMinutes % 60;
-    //console.log(`Matin hours: ${h}, minutes: ${m}`);
     heuresValidesMatin.innerText = `${h.toString().padStart(2, '0')}:${m.toString().padStart(2, '0')}`;
   } else {
     heuresValidesMatin.innerText = "00:20";
@@ -76,31 +73,33 @@ function calculateEndTime() {
   let apresMidiMinutes = 0;
   let endTime;
   if (!isNaN(breakEnd.getTime())) {
-    console.log("work duration valuejjj:", workDurationValue);
-    console.log("work duration value:", workDuration.value);
     let remainingWork = workDurationValue.getHours() * 60 + workDurationValue.getMinutes();
-    console.log(`Remaining work before morning: ${remainingWork} minutes`);
+
     if (matinEnabledValue) {
-      console.log(remainingWork, matinMinutes);
       remainingWork = Math.max(0, remainingWork - matinMinutes);
-      console.log(`morning enabled: ${matinEnabledValue}, remaining work: ${remainingWork} minutes`);
     }
     // Ajout de la pause si renseignée
     endTime = new Date(breakEnd.getTime() + remainingWork * 60000);
     apresMidiMinutes = remainingWork;
-    console.log(`Remaining work after morning: ${remainingWork} minutes`);
-    console.log(`endTime: ${endTime.toLocaleString()}`);
     // Calcul heures validées après-midi (en minutes)
     const h = Math.floor(apresMidiMinutes / 60);
     const m = apresMidiMinutes % 60;
-    console.log(`Après-midi hours: ${h}, minutes: ${m}`);
     heuresValidesApresMidi.innerText = `${h.toString().padStart(2, '0')}:${m.toString().padStart(2, '0')}`;
+    
+    // pause duration calc
+    let pauseMinutes = 0;
+    if (!isNaN(breakStart.getTime()) && !isNaN(breakEnd.getTime())) {
+      pauseMinutes = Math.max(0, Math.round((breakEnd - breakStart) / 60000));
+      const ph = Math.floor(pauseMinutes / 60);
+      const pm = pauseMinutes % 60;
+      pauseDuration.innerText = `${ph.toString().padStart(2, '0')}:${pm.toString().padStart(2, '0')}`;
+    }
+  
   } else {
     heuresValidesApresMidi.innerText = "00:00";
     endTime = null;
   }
 
-  console.log(`End time: ${endTime ? endTime.toLocaleString() : "N/A"}`);
   if (endTime && !isNaN(endTime.getTime())) {
     resultTime.textContent = `End Time: ${endTime.getHours().toString().padStart(2, '0')}:${endTime.getMinutes().toString().padStart(2, '0')}`;
   } else {
